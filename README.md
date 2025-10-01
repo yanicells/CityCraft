@@ -1,4 +1,4 @@
-# CityCraft 🏙️
+# CityCraft
 
 ## Story
 
