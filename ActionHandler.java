@@ -117,7 +117,6 @@ public class ActionHandler implements KeyListener, MouseListener {
     public void mouseClicked(MouseEvent e) {
         if (e.getButton() == MouseEvent.BUTTON3) {
             rain = !rain;
-            System.out.println(rain);
         }
     }
 
