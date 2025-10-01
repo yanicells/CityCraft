@@ -49,12 +49,6 @@ java SceneStarter
 rm *.class
 ```
 
-_On Windows Command Prompt, use:_
-
-```cmd
-del *.class
-```
-
 ## Audio Assets
 
 The game includes various sound effects located in the `assets/` folder:
