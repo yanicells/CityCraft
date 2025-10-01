@@ -1,3 +1,4 @@
+
 /**
  The CityBackground class represents the background of a city scene.
  It implements the DrawingObject class to render the cityscape, including buildings and sound effects.
@@ -27,15 +28,16 @@ public class CityBackground implements DrawingObject {
     private Person player;
 
     /**
-     * Constructs a CityBackground object with the specified base Y-coordinate and player.
+     * Constructs a CityBackground object with the specified base Y-coordinate and
+     * player.
      * Initializes the buildings and sound for the city background.
      *
-     * @param baseY the base Y-coordinate for the city background
+     * @param baseY  the base Y-coordinate for the city background
      * @param player the player object interacting with the city background
      */
     public CityBackground(int baseY, Person player) {
         this.player = player;
-        buildings = new Building[]{
+        buildings = new Building[] {
                 new Building(800, baseY, 10, 9),
                 new Building(820, baseY, 12, 8),
                 new Building(900, baseY, 8, 6),
@@ -48,7 +50,7 @@ public class CityBackground implements DrawingObject {
                 new Building(1410, baseY, 12, 7),
                 new Building(1510, baseY, 8, 9)
         };
-        sound = new Sound("traffic.wav");
+        sound = new Sound("assets/traffic.wav");
     }
 
     /**
@@ -67,7 +69,8 @@ public class CityBackground implements DrawingObject {
 
     /**
      * Updates the state of the city background.
-     * This method controls the looping of the traffic sound based on the player's position.
+     * This method controls the looping of the traffic sound based on the player's
+     * position.
      */
     @Override
     public void update() {
@@ -93,9 +96,9 @@ public class CityBackground implements DrawingObject {
          * Constructs a Building object with the specified position and dimensions.
          * Initializes the building with the given parameters.
          *
-         * @param x the x-coordinate of the building
-         * @param baseY the base Y-coordinate of the building
-         * @param width the width of the building
+         * @param x      the x-coordinate of the building
+         * @param baseY  the base Y-coordinate of the building
+         * @param width  the width of the building
          * @param height the height of the building
          */
         public Building(int x, int baseY, int width, int height) {
@@ -139,6 +142,7 @@ public class CityBackground implements DrawingObject {
          * This method is currently empty because the building requires no movement.
          */
         @Override
-        public void update() {}
+        public void update() {
+        }
     }
 }

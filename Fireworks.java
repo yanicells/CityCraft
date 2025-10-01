@@ -1,3 +1,4 @@
+
 /**
  The Fireworks class represents a collection of fireworks that can be drawn on the screen.
  It implements the DrawingObject class to render the fireworks.
@@ -33,7 +34,7 @@ public class Fireworks implements DrawingObject {
      * Initializes the fireworks list, random generator, and gravity vector.
      *
      * @param actionHandler the action handler for user inputs
-     * @param person the Person object interacting with the fireworks
+     * @param person        the Person object interacting with the fireworks
      */
     public Fireworks(ActionHandler actionHandler, Person person) {
         this.actionHandler = actionHandler;
@@ -45,13 +46,14 @@ public class Fireworks implements DrawingObject {
 
     /**
      * Draws the fireworks using the provided Graphics2D object.
-     * This method adds new fireworks based on user input and updates the state of existing fireworks.
+     * This method adds new fireworks based on user input and updates the state of
+     * existing fireworks.
      *
      * @param g2d the Graphics2D object used for drawing
      */
     @Override
     public void draw(Graphics2D g2d) {
-        if(actionHandler.firework){
+        if (actionHandler.firework) {
             fireworks.add(new Firework());
             actionHandler.firework = false;
         }
@@ -67,7 +69,8 @@ public class Fireworks implements DrawingObject {
 
     /**
      * Updates the state of the fireworks.
-     * This method is currently empty because the fireworks are updated within the draw method.
+     * This method is currently empty because the fireworks are updated within the
+     * draw method.
      */
     @Override
     public void update() {
@@ -75,28 +78,31 @@ public class Fireworks implements DrawingObject {
     }
 
     /**
-     * The Firework class represents a single firework that can be drawn on the screen.
+     * The Firework class represents a single firework that can be drawn on the
+     * screen.
      * It contains particles that simulate the explosion of the firework.
      */
-    class Firework{
+    class Firework {
         private ArrayList<Particle> particles;
         private Particle firework;
         private Sound sound;
 
         /**
          * Constructs a Firework object.
-         * Initializes the firework particle and sound, and creates an empty list for explosion particles.
+         * Initializes the firework particle and sound, and creates an empty list for
+         * explosion particles.
          */
         public Firework() {
             this.firework = new Particle(random.nextInt(person.xPosition - 400, person.xPosition + 400), 400, true);
-            sound = new Sound("firework.wav");
+            sound = new Sound("assets/firework.wav");
             particles = new ArrayList<>();
         }
 
         /**
-         * Runs the firework simulation, updating and drawing the firework and its particles.
+         * Runs the firework simulation, updating and drawing the firework and its
+         * particles.
          *
-         * @param g the Graphics2D object used for drawing
+         * @param g       the Graphics2D object used for drawing
          * @param gravity the gravity vector applied to the particles
          */
         public void run(Graphics2D g, Vector gravity) {

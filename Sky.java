@@ -1,3 +1,4 @@
+
 /**
  The Sky class represents the sky object that can be drawn on the screen.
  It implements the DrawingObject class to render the sky.
@@ -33,18 +34,20 @@ public class Sky implements DrawingObject {
     private Person person;
 
     /**
-     * Constructs a Sky object with the specified dimensions, sun, moon, position, and key listener.
+     * Constructs a Sky object with the specified dimensions, sun, moon, position,
+     * and key listener.
      * Initializes the sky with the given parameters.
      *
-     * @param width the width of the sky
-     * @param height the height of the sky
-     * @param sun the Sun object
-     * @param moon the Moon object
-     * @param xPosition the x-coordinate of the sky
-     * @param yPosition the y-coordinate of the sky
+     * @param width       the width of the sky
+     * @param height      the height of the sky
+     * @param sun         the Sun object
+     * @param moon        the Moon object
+     * @param xPosition   the x-coordinate of the sky
+     * @param yPosition   the y-coordinate of the sky
      * @param keyListener the key listener for user inputs
      */
-    public Sky(double width, double height, Sun sun, Moon moon, int xPosition, int yPosition, KeyHandler keyListener, Person person) {
+    public Sky(double width, double height, Sun sun, Moon moon, int xPosition, int yPosition, KeyHandler keyListener,
+            Person person) {
         this.width = width * 5;
         this.height = height;
         this.sun = sun;
@@ -54,7 +57,7 @@ public class Sky implements DrawingObject {
         this.keyListener = keyListener;
         this.person = person;
         speed = 2;
-        sound = new Sound("bg.wav");
+        sound = new Sound("assets/bg.wav");
         sound.loop();
     }
 

@@ -1,3 +1,4 @@
+
 /**
  The Water class represents a water object that can be drawn on the screen.
  It implements the DrawingObject class to render the water.
@@ -33,17 +34,19 @@ public class Water implements DrawingObject {
     private Sound sound;
 
     /**
-     * Constructs a Water object with the specified position, color, number of waves, wave oscillation, and player.
+     * Constructs a Water object with the specified position, color, number of
+     * waves, wave oscillation, and player.
      * Initializes the water with the given parameters.
      *
-     * @param xStartPosition the x-coordinate of the water's starting position
-     * @param yStartPosition the y-coordinate of the water's starting position
-     * @param color the color of the water
-     * @param waves the number of waves
+     * @param xStartPosition  the x-coordinate of the water's starting position
+     * @param yStartPosition  the y-coordinate of the water's starting position
+     * @param color           the color of the water
+     * @param waves           the number of waves
      * @param waveOscillation the oscillation of the waves
-     * @param player the player interacting with the water
+     * @param player          the player interacting with the water
      */
-    public Water(double xStartPosition, double yStartPosition, Color color, int waves, double waveOscillation, Person player) {
+    public Water(double xStartPosition, double yStartPosition, Color color, int waves, double waveOscillation,
+            Person player) {
         this.xStartPosition = xStartPosition;
         this.yStartPosition = yStartPosition;
         this.color = color;
@@ -53,7 +56,7 @@ public class Water implements DrawingObject {
         this.period = 1500.0 / waves * 2;
         this.movingUp = true;
         this.player = player;
-        sound = new Sound("sea.wav");
+        sound = new Sound("assets/sea.wav");
     }
 
     /**
@@ -70,11 +73,15 @@ public class Water implements DrawingObject {
 
         double currentWaveOscillation = waveOscillation;
 
-        wave.curveTo(xStartPosition + (int) (period / 3), yStartPosition + currentWaveOscillation, xStartPosition + (int) (period * 2 / 3), yStartPosition + currentWaveOscillation, xStartPosition + period, yStartPosition);
+        wave.curveTo(xStartPosition + (int) (period / 3), yStartPosition + currentWaveOscillation,
+                xStartPosition + (int) (period * 2 / 3), yStartPosition + currentWaveOscillation,
+                xStartPosition + period, yStartPosition);
 
         for (int i = 1; i < waves; i++) {
             currentWaveOscillation = -currentWaveOscillation;
-            wave.curveTo(xStartPosition + (period * i) + (int) (period / 3), yStartPosition + currentWaveOscillation, xStartPosition + (period * i) + (int) (period * 2 / 3), yStartPosition + currentWaveOscillation, xStartPosition + period * (i + 1), yStartPosition);
+            wave.curveTo(xStartPosition + (period * i) + (int) (period / 3), yStartPosition + currentWaveOscillation,
+                    xStartPosition + (period * i) + (int) (period * 2 / 3), yStartPosition + currentWaveOscillation,
+                    xStartPosition + period * (i + 1), yStartPosition);
         }
 
         wave.lineTo(xStartPosition + (period * waves), yStartPosition + 100);
@@ -89,15 +96,15 @@ public class Water implements DrawingObject {
 
     /**
      * Updates the state of the water.
-     * This method handles the movement of the waves and the sound based on the player's position.
+     * This method handles the movement of the waves and the sound based on the
+     * player's position.
      */
     @Override
     public void update() {
         if (player.xPosition > 2400 && player.xPosition < 3200) {
-            sound.loop(); 
-        }
-        else {
-            sound.stop(); 
+            sound.loop();
+        } else {
+            sound.stop();
         }
         if (movingUp) {
             waveOscillation += 1;

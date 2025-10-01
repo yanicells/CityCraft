@@ -1,3 +1,4 @@
+
 /**
  The Bird class represents a bird object that can be drawn on the screen.
  It implements the DrawingObject class to render and animate the bird.
@@ -36,7 +37,8 @@ public class Bird implements DrawingObject {
 
     /**
      * Constructs a Bird object with the specified starting position.
-     * Initializes the wings, random generator, flap height, flap direction, and sound.
+     * Initializes the wings, random generator, flap height, flap direction, and
+     * sound.
      *
      * @param xStartPosition the starting x-coordinate of the bird
      * @param yStartPosition the starting y-coordinate of the bird
@@ -50,9 +52,9 @@ public class Bird implements DrawingObject {
         rightWing = new Path2D.Double();
         random = new Random();
         flapHeight = -10;
-        flapDirection = 0.1; 
+        flapDirection = 0.1;
         this.right = random.nextInt(1, 3) == 1;
-        sound = new Sound("bird.wav");
+        sound = new Sound("assets/bird.wav");
         sound.loop();
     }
 
@@ -73,10 +75,12 @@ public class Bird implements DrawingObject {
         rightWing.reset();
 
         leftWing.moveTo(xStartPosition, yStartPosition);
-        leftWing.curveTo(xStartPosition + 9, yStartPosition + flapHeight, xStartPosition + 18, yStartPosition + flapHeight, (xStartPosition + xEndPosition) / 2, yStartPosition);
+        leftWing.curveTo(xStartPosition + 9, yStartPosition + flapHeight, xStartPosition + 18,
+                yStartPosition + flapHeight, (xStartPosition + xEndPosition) / 2, yStartPosition);
 
         rightWing.moveTo((xStartPosition + xEndPosition) / 2, yStartPosition);
-        rightWing.curveTo(xEndPosition - 16, yEndPosition + flapHeight, xEndPosition - 7, yEndPosition + flapHeight, xEndPosition, yEndPosition);
+        rightWing.curveTo(xEndPosition - 16, yEndPosition + flapHeight, xEndPosition - 7, yEndPosition + flapHeight,
+                xEndPosition, yEndPosition);
 
         g2d.setColor(Color.black);
         g2d.setStroke(new BasicStroke(1));
@@ -88,7 +92,8 @@ public class Bird implements DrawingObject {
 
     /**
      * Updates the state of the bird.
-     * This method adjusts the flap height and position of the bird to create a flying animation.
+     * This method adjusts the flap height and position of the bird to create a
+     * flying animation.
      */
     @Override
     public void update() {

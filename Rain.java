@@ -1,3 +1,4 @@
+
 /**
 The Rain class represents a rain effect that can be drawn on the screen.
 It implements the DrawingObject class to render the rain.
@@ -21,7 +22,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Rain implements DrawingObject{
+public class Rain implements DrawingObject {
     private ActionHandler actionHandler;
     private Random random;
     private Vector GRAVITY;
@@ -40,23 +41,23 @@ public class Rain implements DrawingObject{
         rain = new ArrayList<>();
         random = new Random();
         GRAVITY = new Vector(0, 1);
-        sound = new Sound("rain.wav");
+        sound = new Sound("assets/rain.wav");
     }
 
     /**
      * Draws the rain effect using the provided Graphics2D object.
-     * This method adds new raindrops based on user input and updates the state of existing raindrops.
+     * This method adds new raindrops based on user input and updates the state of
+     * existing raindrops.
      *
      * @param g2d the Graphics2D object used for drawing
      */
     @Override
     public void draw(Graphics2D g2d) {
         this.g2d = g2d;
-        if(actionHandler.rain){
+        if (actionHandler.rain) {
             sound.loop();
             rain.add(new Particle(random.nextInt(-200, 3400), random.nextInt(-50, 100), true, true));
-        }
-        else{
+        } else {
             sound.stop();
         }
         update();
@@ -64,18 +65,19 @@ public class Rain implements DrawingObject{
 
     /**
      * Updates the state of the rain.
-     * This method iterates through the list of raindrop particles, applies gravity to each,
+     * This method iterates through the list of raindrop particles, applies gravity
+     * to each,
      * updates their state, draws them, and removes them if they are dead.
      */
     @Override
     public void update() {
-        for(int i = rain.size() - 1; i >= 0; i--){
+        for (int i = rain.size() - 1; i >= 0; i--) {
             Particle droplet = rain.get(i);
             if (droplet != null) {
                 droplet.applyForce(GRAVITY);
                 droplet.update();
                 droplet.draw(g2d);
-                if(droplet.isDead()){
+                if (droplet.isDead()) {
                     rain.remove(droplet);
                 }
             }
