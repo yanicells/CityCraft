@@ -58,7 +58,7 @@ The game includes various sound effects located in the `assets/` folder:
 - Rain effects
 - Firework explosions
 - Character movement sounds
-- And more!
+- And a lot more!
 
 ## Disclaimer
 
